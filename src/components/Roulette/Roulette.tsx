@@ -1,47 +1,46 @@
-import { useState } from 'react';
+import {useNavigate} from "react-router-dom";
+import {Divider, List, ListItemButton, ListItemText, Paper} from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 function Roulette() {
-	const arr = [2, 3, 7, 8];
-	const [value, setValue] = useState<string>('🎰');
-	const [isSpinning, setIsSpinning] = useState<boolean>(false);
 
-	const spinBututton = () => {
-		if (isSpinning) return;
-		setIsSpinning(true);
+    const navigate = useNavigate();
 
-		const finalIndex = Math.floor(Math.random() * arr.length);
-		const finalNumber = arr[finalIndex];
-
-		let delay = 50;
-
-		const spinStep = () => {
-			const random = Math.floor(Math.random() * arr.length);
-			setValue(arr[random].toString());
-
-			delay += 20;
-
-			if (delay < 600) {
-				setTimeout(spinStep, delay);
-			} else {
-				if (finalNumber === 7) {
-					setValue('7 - ты выиграл JACKPOT - 15$ 🎰');
-				} else {
-					setValue('В следующий раз повезет, твое число ' + finalNumber.toString());
-				}
-				setIsSpinning(false);
-			}
-		};
-		spinStep();
-	};
-	return (
-		<div>
-			<h2>🎰 Рулетка</h2>
-			<div>{value}</div>
-			<button onClick={spinBututton} disabled={isSpinning}>
-				{isSpinning ? 'Крутим' : 'Запустить рулетку'}
-			</button>
-		</div>
-	);
+    const routes = [
+        { label: 'CS2', path: '/roulettecs' },
+        { label: 'Random number', path: '/randomnumber' },
+    ]
+    return (
+        <Paper
+            elevation={3}
+            sx={{
+                maxWidth: 800,
+                margin: '40px auto',
+                padding: 2,
+                borderRadius: 2
+            }}
+        >
+            <Typography variant="h5" align="center" gutterBottom>
+                🎰 Выберите рулетку
+            </Typography>
+            <Divider sx={{ mb: 2 }} />
+            <List>
+                {routes.map((route) => (
+                    <ListItemButton
+                        key={route.path}
+                        onClick={() => navigate(route.path)}
+                        sx={{
+                            mb: 1,
+                            borderRadius: 1,
+                            '&:hover': { backgroundColor: 'primary.light' },
+                        }}
+                    >
+                        <ListItemText primary={route.label} sx={{ textAlign: 'center' }} />
+                    </ListItemButton>
+                ))}
+            </List>
+        </Paper>
+    );
 }
 
 export default Roulette;

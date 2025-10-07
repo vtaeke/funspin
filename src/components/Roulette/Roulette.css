@@ -1,0 +1,41 @@
+.roulette-container {
+    width: 500px; /* ширина всей карусели */
+    height: 100px; /* высота карусели */
+    overflow: hidden;
+    border: 2px solid #333;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.reel {
+    display: flex;
+}
+
+.card {
+    width: 50px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.card.winner {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.5s;
+}
+
+.card.loser {
+    background-color: #f44336;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.5s;
+}
