@@ -20,7 +20,7 @@ function Counter() {
 	return (
 		<>
 			<h1>Vite + React</h1>
-			<div className="card">
+			<div className="">
 				<button onClick={() => increment()}>+</button>
 				<button onClick={() => decrement()}>-</button>
 				<button onClick={() => clear()}>Очистить</button>

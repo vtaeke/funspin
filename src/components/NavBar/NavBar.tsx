@@ -19,7 +19,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 const pages = [
 	{ label: 'Главная', path: '/' },
 	{ label: 'Счетчик', path: '/counter' },
-	{ label: 'Главная', path: '/roulette' },
+	{ label: 'Рулетка', path: '/roulette' },
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 

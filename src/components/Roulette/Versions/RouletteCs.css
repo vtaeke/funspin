@@ -1,0 +1,43 @@
+.roulette-container {
+    /*width: 500px;*/
+    /*height: 200px;*/
+    overflow: hidden;
+    border: 2px solid #333;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.reel {
+    display: flex;
+}
+
+.card-cs {
+    width: 300px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2px;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #f0f0f0;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+}
+
+.card-cs.winner {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.5s;
+}
+
+.card-cs.loser {
+    background-color: #f44336;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.5s;
+}
+
